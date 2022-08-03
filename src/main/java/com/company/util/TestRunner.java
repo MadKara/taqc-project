@@ -19,6 +19,4 @@ public abstract class TestRunner {
     public void navigateToUrl() {
         homePage.open();
     }
-
-
 }

@@ -1,5 +1,5 @@
 package com.company.pageobjects;
 
-public class Header {
+public class CartPage {
     //to be filled
 }
