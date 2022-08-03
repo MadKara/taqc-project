@@ -17,12 +17,15 @@ public class Product {
     }
 
     public int getPrice() {
-        return Integer.parseInt($x(rootProductPath + "//span[@class = 'price product-price']")
+        String pricePath = "//div[@class = 'left-block']//span[@class = 'price product-price']";
+
+        return Integer.parseInt($x(rootProductPath + pricePath)
                 .text()
-                .replace("$",""));
+                .replace("$", ""));
     }
 
     public String getName() {
+
         return $x(rootProductPath + "//a[@class = 'product-name']").text();
     }
 
