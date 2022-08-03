@@ -8,7 +8,6 @@ import static java.lang.String.format;
 public class PopularTab {
 
     public Product getProduct(int index) {
-
         $x("//div[@id='center_column']").scrollIntoView(true);
 
         return new Product(format("//ul[@id = 'homefeatured']/li[%s]", index));

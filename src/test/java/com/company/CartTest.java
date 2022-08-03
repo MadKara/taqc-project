@@ -9,16 +9,16 @@ public class CartTest extends TestRunner {
 
     @Test
     public void verifyThatOneProductAddedToCart() {
-        int cartQuantity = homePage
+        int productCountInCart = homePage
                 .getPopularTab()
                 .getProduct(1)
                 .hoverToProduct()
                 .addToCart()
                 .continueShopping()
                 .getHeader()
-                .getCartQuantity();
+                .getProductCountInCart();
 
-        assertThat(cartQuantity)
+        assertThat(productCountInCart)
                 .as("In cart should be one product")
                 .isEqualTo(1);
     }

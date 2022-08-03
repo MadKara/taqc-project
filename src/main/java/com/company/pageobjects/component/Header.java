@@ -21,8 +21,9 @@ public class Header {
         return new Cart();
     }
 
-    public int getCartQuantity() {
+    public int getProductCountInCart() {
         String cartQuantityPath = "//div[@class = 'shopping_cart']//span[contains(@class, 'ajax_cart_quantity')]";
+
         return Integer.parseInt($x(cartQuantityPath)
                 .scrollIntoView(true)
                 .text());
