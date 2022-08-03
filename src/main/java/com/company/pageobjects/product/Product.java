@@ -16,6 +16,19 @@ public class Product {
         return this;
     }
 
+    public int getPrice() {
+        String pricePath = "//div[@class = 'left-block']//span[@class = 'price product-price']";
+
+        return Integer.parseInt($x(rootProductPath + pricePath)
+                .text()
+                .replace("$", ""));
+    }
+
+    public String getName() {
+
+        return $x(rootProductPath + "//a[@class = 'product-name']").text();
+    }
+
     public CartLayer addToCart() {
         $x(rootProductPath + "//a[contains(@class, 'add_to_cart_button')]").click();
 
