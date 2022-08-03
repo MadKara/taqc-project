@@ -10,12 +10,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchTest extends TestRunner {
 
-    private final SearchPage searchPage = new SearchPage();
-
     @Test(groups = "positive", dataProvider = "validSearchData")
     @Description("Test to verify search field should work with valid data")
     public void verifySearchFieldShowResultsWithValidData(String value) {
-        var products = searchPage
+        var products = homePage
+                .getHeader()
                 .performSearch(value)
                 .getResultsOfProducts();
 
@@ -27,7 +26,8 @@ public class SearchTest extends TestRunner {
     @Test(groups = "negative", dataProvider = "invalidSearchData")
     @Description("Test to verify search field should not work with invalid data")
     public void verifySearchFieldDoesNotShowResultsWithInvalidData(String value) {
-        var products = searchPage
+        var products = homePage
+                .getHeader()
                 .performSearch(value)
                 .getResultsOfProducts()
                 .size();
