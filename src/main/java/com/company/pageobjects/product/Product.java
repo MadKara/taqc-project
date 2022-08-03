@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import static com.codeborne.selenide.Selenide.$x;
 
 @AllArgsConstructor
-public class Product {
+public abstract class Product {
 
     private String rootProductPath;
 
@@ -34,5 +34,4 @@ public class Product {
 
         return new CartLayer();
     }
-
 }
