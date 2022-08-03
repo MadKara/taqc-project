@@ -11,6 +11,4 @@ public class Cart {
     public String getShipping() {
         return $x("").text();
     }
-
-    //dl[@class = 'products']//dt
 }
