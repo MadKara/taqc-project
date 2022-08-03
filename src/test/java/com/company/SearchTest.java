@@ -1,6 +1,5 @@
 package com.company;
 
-import com.company.pageobjects.SearchPage;
 import com.company.util.TestRunner;
 import io.qameta.allure.Description;
 import org.testng.annotations.DataProvider;
@@ -16,25 +15,24 @@ public class SearchTest extends TestRunner {
         var products = homePage
                 .getHeader()
                 .performSearch(value)
-                .getResultsOfProducts();
+                .getSearchedProductsResult();
 
         assertThat(products)
                 .as("Search field with entered valid inputs should show according list of products")
-                .allMatch(s -> s.contains(value));
+                .allMatch(s -> s.getName().contains(value));
     }
 
     @Test(groups = "negative", dataProvider = "invalidSearchData")
     @Description("Test to verify search field should not work with invalid data")
     public void verifySearchFieldDoesNotShowResultsWithInvalidData(String value) {
-        var products = homePage
+        var alert = homePage
                 .getHeader()
                 .performSearch(value)
-                .getResultsOfProducts()
-                .size();
+                .getNoResultsAlert();
 
-        assertThat(products)
-                .as("Search field with entered invalid inputs should not show any product")
-                .isEqualTo(0);
+        assertThat(alert)
+                .as("Search field with entered invalid inputs should show message no results for" + value)
+                .contains(value);
     }
 
     @DataProvider(name = "validSearchData")
