@@ -15,7 +15,7 @@ public class SearchTest extends TestRunner {
         var products = homePage
                 .getHeader()
                 .performSearch(value)
-                .getSearchedProductsResult();
+                .getSearchedProducts();
 
         assertThat(products)
                 .as("Search field with entered valid inputs should show according list of products")

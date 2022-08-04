@@ -14,7 +14,7 @@ import static java.util.stream.IntStream.range;
 
 public class SearchPage {
 
-    public List<SearchedProduct> getSearchedProductsResult() {
+    public List<SearchedProduct> getSearchedProducts() {
         var productPath = "//ul[contains(@class, 'product_list')]/li";
 
         return range(1, $$x(productPath)
